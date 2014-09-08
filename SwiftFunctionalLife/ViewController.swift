@@ -9,9 +9,14 @@
 import UIKit
 
 enum State {
-  case Alive, Dead
+  case Alive, Dead, NeverLived
 }
 
+infix operator !~={}
+
+func !~=<I : IntervalType>(pattern: I, value: I.Bound) -> Bool {
+  return !(pattern ~= value)
+}
 
 class Cell {
   let x: Int, y: Int
@@ -20,7 +25,7 @@ class Cell {
   init (x: Int, y: Int) {
     self.x = x
     self.y = y
-    state = .Dead
+    state = .NeverLived
   }
 }
 
@@ -49,7 +54,14 @@ class World {
       println()
       for y in 0..<dimensions {
         let cell = self[x, y]!
-        print(cell.state == State.Alive ? "#" : ".")
+        switch cell.state {
+        case .Alive:
+          print("#")
+        case .Dead:
+          print("-")
+        case .NeverLived:
+          print(".")
+        }
       }
     }
     println()
@@ -57,6 +69,9 @@ class World {
   
   
   func iterate() {
+
+    // utility functions
+
     let cellsAreNeighbours = {
       (op1: Cell, op2: Cell) -> Bool in
       let delta = (abs(op1.x - op2.x), abs(op1.y - op2.y))
@@ -81,17 +96,12 @@ class World {
     // rules of life
 
     let liveCells = grid.filter { $0.state == .Alive }
-    let dyingCells = liveCells.filter {
-      cell in
-      2...3 !~= livingNeighboursForCell(cell)
-    }
-    
+    let deadCells = grid.filter { $0.state != .Alive }
 
-    let deadCells = grid.filter { $0.state == .Dead }
-    let newLife =  grid.filter { $0.state == .Dead }.filter {
-      cell in
-      livingNeighboursForCell(cell) == 3
-    }
+    let dyingCells = liveCells.filter { 2...3 !~= livingNeighboursForCell($0) }
+    let newLife =  deadCells.filter { livingNeighboursForCell($0) == 3 }
+
+    // updating the world state
 
     for cell in newLife {
       cell.state = .Alive
@@ -118,6 +128,7 @@ class ViewController: UIViewController {
     let now = NSDate()
     for _ in 0...100 {
       world.iterate()
+      world.dump()
     }
     var then = NSDate().timeIntervalSinceDate(now)
     println(then)
@@ -131,10 +142,6 @@ class ViewController: UIViewController {
 
 }
 
-infix operator !~={}
 
-func !~=<I : IntervalType>(pattern: I, value: I.Bound) -> Bool {
-  return !(pattern ~= value)
-}
 
 
