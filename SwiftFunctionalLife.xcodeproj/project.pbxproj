@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CBCF76319BD8AC8005F8C31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBCF76219BD8AC8005F8C31 /* CoreGraphics.framework */; };
+		3CBCF76519BE49C2005F8C31 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76419BE49C2005F8C31 /* WorldView.swift */; };
+		3CBCF76719BE4A20005F8C31 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76619BE4A20005F8C31 /* World.swift */; };
+		3CBCF76919BE4AAD005F8C31 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76819BE4AAD005F8C31 /* Cell.swift */; };
+		3CBCF76B19BE4B29005F8C31 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76A19BE4B29005F8C31 /* Operators.swift */; };
 		3CF176AF19B1CDA000AB15A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF176AE19B1CDA000AB15A7 /* AppDelegate.swift */; };
 		3CF176B119B1CDA000AB15A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF176B019B1CDA000AB15A7 /* ViewController.swift */; };
 		3CF176B419B1CDA000AB15A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF176B219B1CDA000AB15A7 /* Main.storyboard */; };
@@ -25,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3CBCF76219BD8AC8005F8C31 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3CBCF76419BE49C2005F8C31 /* WorldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
+		3CBCF76619BE4A20005F8C31 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		3CBCF76819BE4AAD005F8C31 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		3CBCF76A19BE4B29005F8C31 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		3CF176A919B1CDA000AB15A7 /* SwiftFunctionalLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFunctionalLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF176AD19B1CDA000AB15A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF176AE19B1CDA000AB15A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CBCF76319BD8AC8005F8C31 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +68,7 @@
 		3CF176A019B1CDA000AB15A7 = {
 			isa = PBXGroup;
 			children = (
+				3CBCF76219BD8AC8005F8C31 /* CoreGraphics.framework */,
 				3CF176AB19B1CDA000AB15A7 /* SwiftFunctionalLife */,
 				3CF176BE19B1CDA000AB15A7 /* SwiftFunctionalLifeTests */,
 				3CF176AA19B1CDA000AB15A7 /* Products */,
@@ -80,6 +92,10 @@
 				3CF176B219B1CDA000AB15A7 /* Main.storyboard */,
 				3CF176B519B1CDA000AB15A7 /* Images.xcassets */,
 				3CF176AC19B1CDA000AB15A7 /* Supporting Files */,
+				3CBCF76419BE49C2005F8C31 /* WorldView.swift */,
+				3CBCF76619BE4A20005F8C31 /* World.swift */,
+				3CBCF76819BE4AAD005F8C31 /* Cell.swift */,
+				3CBCF76A19BE4B29005F8C31 /* Operators.swift */,
 			);
 			path = SwiftFunctionalLife;
 			sourceTree = "<group>";
@@ -210,6 +226,10 @@
 			files = (
 				3CF176B119B1CDA000AB15A7 /* ViewController.swift in Sources */,
 				3CF176AF19B1CDA000AB15A7 /* AppDelegate.swift in Sources */,
+				3CBCF76919BE4AAD005F8C31 /* Cell.swift in Sources */,
+				3CBCF76719BE4A20005F8C31 /* World.swift in Sources */,
+				3CBCF76519BE49C2005F8C31 /* WorldView.swift in Sources */,
+				3CBCF76B19BE4B29005F8C31 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +415,7 @@
 				3CF176C719B1CDA000AB15A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CF176C819B1CDA000AB15A7 /* Build configuration list for PBXNativeTarget "SwiftFunctionalLifeTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +424,7 @@
 				3CF176CA19B1CDA000AB15A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
