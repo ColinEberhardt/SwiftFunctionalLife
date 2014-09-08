@@ -12,18 +12,11 @@ enum State {
   case Alive, Dead
 }
 
-struct CellPair: Hashable {
-  let a: Cell, b: Cell
-}
 
-class Cell: Hashable {
+class Cell {
   let x: Int, y: Int
   var state: State
-  
-  var hashValue:Int {
-    return x*1000 + y
-  }
-  
+ 
   init (x: Int, y: Int) {
     self.x = x
     self.y = y
@@ -31,9 +24,6 @@ class Cell: Hashable {
   }
 }
 
-func ==(op1: Cell, op2: Cell) -> Bool {
-  return op1.x == op2.x && op1.y == op2.y
-}
 
 class World {
   let grid: [Cell];
