@@ -11,7 +11,7 @@
 		3CBCF76519BE49C2005F8C31 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76419BE49C2005F8C31 /* WorldView.swift */; };
 		3CBCF76719BE4A20005F8C31 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76619BE4A20005F8C31 /* World.swift */; };
 		3CBCF76919BE4AAD005F8C31 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76819BE4AAD005F8C31 /* Cell.swift */; };
-		3CBCF76B19BE4B29005F8C31 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76A19BE4B29005F8C31 /* Operators.swift */; };
+		3CBCF76E19BED7A1005F8C31 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76D19BED7A1005F8C31 /* Util.swift */; };
 		3CF176AF19B1CDA000AB15A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF176AE19B1CDA000AB15A7 /* AppDelegate.swift */; };
 		3CF176B119B1CDA000AB15A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF176B019B1CDA000AB15A7 /* ViewController.swift */; };
 		3CF176B419B1CDA000AB15A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF176B219B1CDA000AB15A7 /* Main.storyboard */; };
@@ -34,7 +34,7 @@
 		3CBCF76419BE49C2005F8C31 /* WorldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldView.swift; sourceTree = "<group>"; };
 		3CBCF76619BE4A20005F8C31 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		3CBCF76819BE4AAD005F8C31 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		3CBCF76A19BE4B29005F8C31 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		3CBCF76D19BED7A1005F8C31 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3CF176A919B1CDA000AB15A7 /* SwiftFunctionalLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFunctionalLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF176AD19B1CDA000AB15A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF176AE19B1CDA000AB15A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +87,7 @@
 		3CF176AB19B1CDA000AB15A7 /* SwiftFunctionalLife */ = {
 			isa = PBXGroup;
 			children = (
+				3CBCF76D19BED7A1005F8C31 /* Util.swift */,
 				3CF176AE19B1CDA000AB15A7 /* AppDelegate.swift */,
 				3CF176B019B1CDA000AB15A7 /* ViewController.swift */,
 				3CF176B219B1CDA000AB15A7 /* Main.storyboard */,
@@ -95,7 +96,6 @@
 				3CBCF76419BE49C2005F8C31 /* WorldView.swift */,
 				3CBCF76619BE4A20005F8C31 /* World.swift */,
 				3CBCF76819BE4AAD005F8C31 /* Cell.swift */,
-				3CBCF76A19BE4B29005F8C31 /* Operators.swift */,
 			);
 			path = SwiftFunctionalLife;
 			sourceTree = "<group>";
@@ -225,11 +225,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CF176B119B1CDA000AB15A7 /* ViewController.swift in Sources */,
+				3CBCF76E19BED7A1005F8C31 /* Util.swift in Sources */,
 				3CF176AF19B1CDA000AB15A7 /* AppDelegate.swift in Sources */,
 				3CBCF76919BE4AAD005F8C31 /* Cell.swift in Sources */,
 				3CBCF76719BE4A20005F8C31 /* World.swift in Sources */,
 				3CBCF76519BE49C2005F8C31 /* WorldView.swift in Sources */,
-				3CBCF76B19BE4B29005F8C31 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

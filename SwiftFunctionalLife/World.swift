@@ -57,22 +57,16 @@ class World {
     }
     
     // rules of life
-    
     let liveCells = cells.filter { $0.state == .Alive }
     let deadCells = cells.filter { $0.state != .Alive }
     
-    let dyingCells = liveCells.filter { 2...3 !~= livingNeighboursForCell($0) }
+    let dyingCells = liveCells.filter { livingNeighboursForCell($0) !~= 2...3 }
     let newLife =  deadCells.filter { livingNeighboursForCell($0) == 3 }
     
     // updating the world state
+    newLife.each { (cell: Cell) in cell.state = .Alive }
+    dyingCells.each { (cell: Cell) in cell.state = .Dead }
     
-    for cell in newLife {
-      cell.state = .Alive
-    }
-    
-    for cell in dyingCells {
-      cell.state = .Dead
-    }
   }
 }
 
