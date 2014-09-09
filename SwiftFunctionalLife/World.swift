@@ -10,8 +10,7 @@ import Foundation
 
 // the Game of Life 'World', contains an array of cells
 class World {
-  
-  let cells: [Cell];
+  let cells: [Cell]
   let dimensions: Int = 20
   
   init() {
@@ -33,7 +32,7 @@ class World {
   func iterate() {
     
     // utility functions - cannot reference a local function from another
-    // locale function, hence defined as constant closures
+    // local function, hence defined as constant closures
     
     let cellsAreNeighbours = {
       (op1: Cell, op2: Cell) -> Bool in
