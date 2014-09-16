@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C68BB9519C7818900CBBE19 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76619BE4A20005F8C31 /* World.swift */; };
+		3C68BB9619C7818C00CBBE19 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76819BE4AAD005F8C31 /* Cell.swift */; };
+		3C68BB9719C781A900CBBE19 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76D19BED7A1005F8C31 /* Util.swift */; };
 		3CBCF76319BD8AC8005F8C31 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBCF76219BD8AC8005F8C31 /* CoreGraphics.framework */; };
 		3CBCF76519BE49C2005F8C31 /* WorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76419BE49C2005F8C31 /* WorldView.swift */; };
 		3CBCF76719BE4A20005F8C31 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCF76619BE4A20005F8C31 /* World.swift */; };
@@ -237,7 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C68BB9519C7818900CBBE19 /* World.swift in Sources */,
 				3CF176C219B1CDA000AB15A7 /* SwiftFunctionalLifeTests.swift in Sources */,
+				3C68BB9619C7818C00CBBE19 /* Cell.swift in Sources */,
+				3C68BB9719C781A900CBBE19 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +365,7 @@
 				INFOPLIST_FILE = SwiftFunctionalLife/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -392,6 +399,7 @@
 				INFOPLIST_FILE = SwiftFunctionalLifeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftFunctionalLife.app/SwiftFunctionalLife";
 			};
 			name = Release;

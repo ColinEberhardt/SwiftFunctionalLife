@@ -13,6 +13,23 @@ class World {
   let cells: [Cell]
   let dimensions: Int = 20
   
+  lazy var neighboursForCell: (cell: Cell) -> [Cell] = memoize {
+    (cell: Cell) -> [Cell] in
+    
+    let cellsAreNeighbours = {
+      (op1: Cell, op2: Cell) -> Bool in
+      let delta = (abs(op1.x - op2.x), abs(op1.y - op2.y))
+      switch (delta) {
+      case (1,1), (1,0), (0,1):
+        return true
+      default:
+        return false
+      }
+    }
+    
+    return self.cells.filter { cellsAreNeighbours(cell, $0)}
+  }
+  
   init() {
     cells = [Cell]()
     
@@ -22,6 +39,11 @@ class World {
         cells.append(Cell(x: x, y: y))
       }
     }
+    
+    // find their neighbours
+    for cell in cells {
+      cell.neighbours = self.neighboursForCell(cell: cell)
+    }
   }
   
   subscript (x: Int, y: Int) -> Cell? {
@@ -29,11 +51,54 @@ class World {
   }
   
   // applies the rules of the Game of Life to the current state
-  func iterate() {
+  func iterateMemoised() {
     
-    // utility functions - cannot reference a local function from another
+    let livingNeighboursForCell = {
+      (cell: Cell) -> Int in
+      self.neighboursForCell(cell: cell).filter{ $0.state == State.Alive }.count
+    }
+    
+    // rules of life
+    let liveCells = cells.filter { $0.state == .Alive }
+    let deadCells = cells.filter { $0.state != .Alive }
+    
+    let dyingCells = liveCells.filter { livingNeighboursForCell($0) !~= 2...3 }
+    let newLife =  deadCells.filter { livingNeighboursForCell($0) == 3 }
+    
+    // updating the world state
+    newLife.each { (cell: Cell) in cell.state = .Alive }
+    dyingCells.each { (cell: Cell) in cell.state = .Dead }
+    
+  }
+  
+  // applies the rules of the Game of Life to the current state
+  func iteratePreComputed() {
+    
+    let livingNeighboursForCell = {
+      (cell: Cell) -> Int in
+      cell.neighbours.filter{ $0.state == State.Alive }.count
+    }
+    
+    // rules of life
+    let liveCells = cells.filter { $0.state == .Alive }
+    let deadCells = cells.filter { $0.state != .Alive }
+    
+    let dyingCells = liveCells.filter { livingNeighboursForCell($0) !~= 2...3 }
+    let newLife =  deadCells.filter { livingNeighboursForCell($0) == 3 }
+    
+    // updating the world state
+    newLife.each { (cell: Cell) in cell.state = .Alive }
+    dyingCells.each { (cell: Cell) in cell.state = .Dead }
+    
+  }
+  
+  // applies the rules of the Game of Life to the current state. This
+  // implementation is non-optimised in that it repeatedly computes the 
+  // neighbours for each cell
+  func iterateNonOptimised() {
+    
+    // utility functions
     // local function, hence defined as constant closures
-    
     let cellsAreNeighbours = {
       (op1: Cell, op2: Cell) -> Bool in
       let delta = (abs(op1.x - op2.x), abs(op1.y - op2.y))
@@ -65,7 +130,11 @@ class World {
     // updating the world state
     newLife.each { (cell: Cell) in cell.state = .Alive }
     dyingCells.each { (cell: Cell) in cell.state = .Dead }
-    
   }
 }
+
+
+
+
+
 

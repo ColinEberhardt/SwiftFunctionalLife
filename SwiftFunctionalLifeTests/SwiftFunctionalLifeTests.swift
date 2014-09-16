@@ -10,27 +10,44 @@ import UIKit
 import XCTest
 
 class SwiftFunctionalLifeTests: XCTestCase {
+  
+  let world = World()
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+  override func setUp() {
+    super.setUp()
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // a random initial state
+    func randLocation () -> Int {
+      return Int(arc4random()) % world.dimensions
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    for _ in 0...100 {
+      let x = randLocation(), y = randLocation()
+      world[x, y]!.state = .Alive
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+  }
+  
+  /*func testPerformanceNonOptimised() {
+    measureBlock {
+      for _ in 0...20 {
+        self.world.iterateNonOptimised()
+      }
     }
+  }*/
+  
+  func testPerformanceMemoised() {
+    self.measureBlock() {
+      for _ in 0...20 {
+        self.world.iterateMemoised()
+      }
+    }
+  }
+  
+  func testPerformancePreComputed() {
+    self.measureBlock() {
+      for _ in 0...20 {
+        self.world.iteratePreComputed()
+      }
+    }
+  }
     
 }

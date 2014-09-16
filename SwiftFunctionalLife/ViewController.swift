@@ -30,11 +30,12 @@ class ViewController: UIViewController {
   }
   
   func handleTap(recognizer: UITapGestureRecognizer) {
-    timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "tick", userInfo: nil, repeats: true)
+    timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: "tick", userInfo: nil, repeats: true)
+    //tick()
   }
   
   func tick() {
-    world.iterate()
+    world.iteratePreComputed()
     worldView.setNeedsDisplay()
   }
                             
